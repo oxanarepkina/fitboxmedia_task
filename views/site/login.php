@@ -12,8 +12,6 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-login">
     <h1><?= Html::encode($this->title) ?></h1>
-
-
     <? if ($error): ?>
 
             <h4 style="color: #a94442">Incorrect input data</div>
@@ -21,7 +19,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <? endif; ?>
     <?if(isset($last_attempt)):?>
         <?$current_date = new DateTime();
-//        $five_min = $last_attempt->add(new DateInterval("PT5M"));
         $five_min = $last_attempt->modify("+5 minutes");
         $remaining_time = ($five_min->getTimestamp() - $current_date->getTimestamp());
         ?>

@@ -92,8 +92,7 @@ class SiteController extends Controller
                 $query->select('date')
                     ->from('errors')
                     ->where(['ip' => $ip])
-                    ->andWhere([
-                            '>', 'date', date('Y-m-d H:i:s', strtotime('-5 minutes'))])
+                    ->andWhere(['>', 'date', date('Y-m-d H:i:s', strtotime('-5 minutes'))])
                     ->orderBy(['date' => SORT_DESC])
                     ->limit(3);
                 $rows = $query->all();
@@ -142,16 +141,6 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->redirect(['/login']);
-    }
-
-    /**
-     * Displays about page.
-     *
-     * @return string
-     */
-    public function actionAbout()
-    {
-        return $this->render('about');
     }
 
     /**
